@@ -1,4 +1,4 @@
-# 1、基于Python编程语言的攻击程序原理
+# 1、基于Python编程的攻击原理
 
 ## 一、什么是dll
 
@@ -69,7 +69,6 @@ HHOOK WINAPI SetWindowsHookEx(
   _In_ DWORD     dwThreadId
 );
 ```
-
 　　idHook参数是消息钩子的类型，可以选择的类型在MSDN中可以查看到相应的宏定义。比如我们想对所有的键盘消息做挂钩，其取值将是WH_KEYBOARD，WH_KEYBOARD这个宏的值是2。
 　　lpfn参数是钩子函数的起始地址，注意：不同的消息钩子类型的钩子函数原型是不一样的，因为不同类型的消息需要的参数是不同的，具体的钩子函数原型需要查看MSDN来获得。注意：钩子函数可以在结束前任意位置调用CallNextHookEx函数来执行钩链的其他钩子函数。当然，如果不调用这个函数，钩链上的后续钩子函数将不会被执行。
 　　hMod参数是钩子函数所在的模块的模块句柄。
@@ -82,7 +81,6 @@ HHOOK WINAPI SetWindowsHookEx(
     BOOL WINAPI UnhookWindowsHookEx(
       _In_ HHOOK hhk
     );
-
 　　hhk参数是之前调用SetWindowsHookEx函数返回的HOOK变量/句柄。这个函数调用成功后会使被注入过dll的锁计数器递减1，当锁计数器减到0时系统会卸载被注入的dll。
 
 　　这种类型的dll注入的优点是注入简单，缺点是只能对windows消息进行Hook并注入dll，而且注入dll可能不是立即被注入，因为这需要相应类型的事件发生。其次是它不能进行其他API的Hook，如果想对其它的函数进行Hook，你需要再在被注入的dll中添加用于API Hook的代码。
@@ -91,33 +89,33 @@ HHOOK WINAPI SetWindowsHookEx(
 
 ## 七：准备工作
 
-### #1、最新anocoda3.7
+### 1、最新anocoda3.7
 
 https://www.anaconda.com/distribution/#download-section
 
-### #2、提速下载可以改变源
+### 2、提速下载可以改变源
 
 pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
-### #3、安装pywin32,安装时指定安装目录，默认为C:\Python37\Lib\site-packages\
+### 3、安装pywin32,安装时指定安装目录，默认为C:\Python37\Lib\site-packages\
 
 https://github.com/mhammond/pywin32/releases
 
-### #4、安装opencv-python
+### 4、安装opencv-python
 
 pip install opencv-python
 
-### #5、安装pyinstaller，依赖pyin32
+### 5、安装pyinstaller，依赖pyin32
 
 pip install pyinstaller
 
-### #6、ico文件准备好
+### 6、ico文件准备好
 
 在线制作
 or
 https://www.easyicon.net/500133-QQ_Penguin_tencent_icon.html
 
-### #7、了解一下要用到的功能：
+### 7、了解一下要用到的功能：
 
 ```python
 from time import sleep,strftime
@@ -145,7 +143,7 @@ from threading import Thread
 from threading import Lock
 ```
 
-## 编程步骤
+## 八、编程具体步骤
 
 1、先编写病毒程序=》WinCoreManagerment.py
 
@@ -195,4 +193,3 @@ taskkill /F /IM WinCoreManagement.exe
 
 taskkill /F /IM pycharm.exe
 ```
-
