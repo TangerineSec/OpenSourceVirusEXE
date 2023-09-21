@@ -164,15 +164,17 @@ from threading import Lock
 
 3、服务端部署，修改安全组，开发端口
 
+4、测试远程监听端口和客户端
+
 5、病毒程序制作二进制
 
 6、病毒程序进行伪装处理，并打包成exe
 
-6.1 编写伪装文件："pycharm破解版.py"
+  6.1 编写伪装文件："pycharm破解版.py"
 
-6.2 编写无限重启文件："System.py"
+  6.2 编写无限重启文件："System.py"
 
-6.3 打包制作二进制exe
+  6.3 打包制作二进制exe
 
 ```shell
 pyinstaller -i system.ico -Fw WinCoreManagement.py
@@ -186,7 +188,7 @@ pyinstaller -i pycharm.ico -Fw pycharmCrackingProgram.py
 
 7、关闭Virus进程方法
 
-打开命令输入下面三行命令可以关闭。
+打开命令输入下面三行命令可以关闭所有相关进程，并且这三个进程就是涉及操作的进程。
 
 ```shell
 taskkill /F /IM System.exe
