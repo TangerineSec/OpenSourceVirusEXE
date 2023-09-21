@@ -31,14 +31,14 @@
 
 ## 五、🤗dll注入的方法
 
-　　一般情况下有如下dll注入方法：　　　　
-　　　　1.修改注册表来注入dll；
-　　　　2.使用CreateRemoteThread函数对运行中的进程注入dll；
-　　　　3.使用SetWindowsHookEx函数对应用程序挂钩(HOOK)迫使程序加载dll；
-　　　　4.替换应用程序一定会使用的dll；
-　　　　5.把dll作为调试器来注入；
-　　　　6.用CreateProcess对子进程注入dll
-　　　　7.修改被注入进程的exe的导入地址表。
+　　一般情况下有如下dll注入方法：
+  1.修改注册表来注入dll；
+　2.使用CreateRemoteThread函数对运行中的进程注入dll；
+　3.使用SetWindowsHookEx函数对应用程序挂钩(HOOK)迫使程序加载dll；
+　4.替换应用程序一定会使用的dll；
+　5.把dll作为调试器来注入；
+　6.用CreateProcess对子进程注入dll
+　7.修改被注入进程的exe的导入地址表。
     ps：
         杀毒软件常用钩子来进行处理
 
